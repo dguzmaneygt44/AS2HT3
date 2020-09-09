@@ -7,7 +7,7 @@
 
 #### Funcionamiento:
 
--Visualizar los distintos menus disponibles, incluyendo productos extras y procesar ordenes -solicitadas utilizando el Proyecto Java MVC con Spring Boot y MAVEN
+-Visualizar los distintos menus disponibles, incluyendo productos extras y procesar ordenes -solicitadas utilizando el Proyecto Java MVC con Servlet y Axios
 
 ##### Construido con
 
