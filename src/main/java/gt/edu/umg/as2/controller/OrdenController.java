@@ -1,4 +1,4 @@
-package gt.edu.umg.as2;
+package gt.edu.umg.as2.controller;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -18,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author AK272DT
  */
-@WebServlet(urlPatterns = {"/Prueba1"})
-public class Prueba1 extends HttpServlet {
+@WebServlet(urlPatterns = {"/Orden"})
+public class OrdenController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,7 +41,7 @@ public class Prueba1 extends HttpServlet {
             out.println("<title>Servlet Prueba1</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Prueba1 at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet Orden at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
