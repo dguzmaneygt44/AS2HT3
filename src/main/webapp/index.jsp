@@ -6,6 +6,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        
         <style>
             body {
                 background-color: ivory;
@@ -16,7 +18,7 @@
     <body class="container">
         <h1>Antigua Burger</h1>
         <h2>Toma de la orden</h2>
-        <form action="#" method="post">
+        <form action="Orden" method="get">
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
@@ -25,7 +27,7 @@
                                 <label for="numeroOrden">Número de orden: </label>
                             </div>
                             <div class="col-lg-6">
-                                <input type="text" class="form-control" />
+                                <input type="text" class="form-control" name="orden" id="orden"/>
                             </div>
                         </div>
                     </div>
@@ -35,7 +37,17 @@
                                 <label for="numeroOrden">Cajero: </label>
                             </div>
                             <div class="col-lg-6">
-                                <input type="text" class="form-control" />
+                                <input type="text" class="form-control" name="cajero" id="cajero"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label for="numeroOrden">Nit: </label>
+                            </div>
+                            <div class="col-lg-6">
+                                <input type="text" class="form-control" name="nit" id="nit"/>
                             </div>
                         </div>
                     </div>
@@ -45,7 +57,7 @@
                                 <label for="numeroOrden">Cliente: </label>
                             </div>
                             <div class="col-lg-6">
-                                <input type="text" class="form-control" />
+                                <input type="text" class="form-control" name="cliente" id="cliente"/>
                             </div>
                         </div>
                     </div>
@@ -55,13 +67,13 @@
                                 <label for="numeroOrden">Combo: </label>
                             </div>
                             <div class="col-lg-6">
-                                <select class="form-control" name="combo" >
+                                <select class="form-control" name="combo" id="combo">
                                     <option value="1" selected>Desayuno1</option>
                                     <option value="2">Desayuno2</option>
-                                    <option value="4">Desayuno3</option>
+                                    <option value="3">Desayuno3</option>
                                     <option value="4">Almuerzo1</option>
-                                    <option value="4">Almuerzo2</option>
-                                    <option value="4">Cena1</option>
+                                    <option value="5">Almuerzo2</option>
+                                    <option value="6">Cena1</option>
                                 </select>
                             </div>
                         </div>
@@ -965,8 +977,37 @@
                                 <input type="submit" class="btn btn-primary" value="Crear Orden" />
                                 <input type="reset" class="btn btn-warning" value="Reset" />
                             </div>
-
-
                             </form>
+        
+        <script>
+                var valor = document.getElementById("orden").value;
+                var valor1 = document.getElementById("cajero").value;
+                var valor2 = document.getElementById("cliente").value;
+                var valor3 = document.getElementById("nit").value;
+                var valor4 = document.getElementById("combo").value;
+                function selecionar(a){
+                    
+                }                              // Optionally the request above could also be done as
+axios.get('http://localhost:8080/AS2HT2/Orden', {
+    params: {
+      orden: valor,
+      cajero: valor1,
+      cliente: valor2,
+      nit: valor3,
+      combo: valor4
+      
+    }
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  })
+  .then(function () {
+    // always executed
+  });  
+            
+          </script>
                             </body>
                             </html>

@@ -30,11 +30,12 @@ public class OrdenController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    /*
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
+        
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -45,7 +46,7 @@ public class OrdenController extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
         }
-    }
+    }*/
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -59,7 +60,39 @@ public class OrdenController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+       /// processRequest(request, response);
+       
+       ////////captura de datos
+        
+        String orden = request.getParameter("orden");
+        int numorden = Integer.parseInt(orden);
+        String cajero = request.getParameter("cajero");
+        String cliente = request.getParameter("cliente");
+        String nit = request.getParameter("nit");
+        int valornit = Integer.parseInt(nit);
+        String combo = request.getParameter("combo");
+          
+          System.out.println("numeroOrden " + numorden );
+          System.out.println("cajero" + cajero );
+          System.out.println("cliente " + cliente );
+          System.out.println("nit" + valornit);
+          System.out.println("combo" + combo );
+        
+          
+          
+        
+        try(PrintWriter out = response.getWriter())
+        {
+            out.println("{orden:" + numorden + "}");
+            out.println("{cajero:" + cajero + "}");
+            out.println("{cliente:" + cliente + "}");
+            out.println("{nit:" + valornit + "}");
+            out.println("{combo:" + combo + "}");
+        }
+       ////////////--fin captura
+       
+       
+       
     }
 
     /**
@@ -73,7 +106,7 @@ public class OrdenController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
     }
 
     /**
