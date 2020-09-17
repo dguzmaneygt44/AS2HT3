@@ -6,6 +6,7 @@ package gt.edu.umg.as2.controller;
  * and open the template in the editor.
  */
 
+import gt.edu.umg.as2.model.OrdenEntity;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -60,36 +61,13 @@ public class OrdenController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       /// processRequest(request, response);
+        
+      ///  OrdenEntity orden = new ...();
        
-       ////////captura de datos
+         ////////captura de datos
         
-        String orden = request.getParameter("orden");
-        int numorden = Integer.parseInt(orden);
-        String cajero = request.getParameter("cajero");
-        String cliente = request.getParameter("cliente");
-        String nit = request.getParameter("nit");
-        int valornit = Integer.parseInt(nit);
-        String combo = request.getParameter("combo");
-          
-          System.out.println("numeroOrden " + numorden );
-          System.out.println("cajero" + cajero );
-          System.out.println("cliente " + cliente );
-          System.out.println("nit" + valornit);
-          System.out.println("combo" + combo );
         
-          
-          
         
-        try(PrintWriter out = response.getWriter())
-        {
-            out.println("{orden:" + numorden + "}");
-            out.println("{cajero:" + cajero + "}");
-            out.println("{cliente:" + cliente + "}");
-            out.println("{nit:" + valornit + "}");
-            out.println("{combo:" + combo + "}");
-        }
-       ////////////--fin captura
        
        
        
@@ -107,8 +85,73 @@ public class OrdenController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-    }
+        
+        /// processRequest(request, response);
+        
+        String orden = request.getParameter("orden");
+        int numorden = Integer.parseInt(orden);
+        
+        ///orden.numOrden = Integer.parseInt(request.getParameter("orden"));
+        
+        String cajero = request.getParameter("cajero");
+        String cliente = request.getParameter("cliente");
+        String nit = request.getParameter("nit");
+        int valornit = Integer.parseInt(nit);
+        String combo = request.getParameter("combo");
+        String campo1 = request.getParameter("campo1");
+        String campo2 = request.getParameter("campo2");
+        String campo3 = request.getParameter("campo3");
+        String campo4 = request.getParameter("campo4");
+        String campo5 = request.getParameter("campo5");
+        
+        
+        CursoDAOImpl cursoDAO = new CursoDAOImpl();
+        boolean status = cursoDAO.insertarCurso(curso);
 
+        String mensaje = (status) ? "Insertado correctamente!" : "No se pudo insertar el registro...";
+
+        model.addAttribute("mensaje", mensaje);
+
+        return "redirect:/getCurso";;
+           
+          
+          System.out.println("numeroOrden " + numorden );
+          System.out.println("cajero" + cajero );
+          System.out.println("cliente " + cliente );
+          System.out.println("nit" + valornit);
+          System.out.println("combo" + combo );
+          System.out.println("envio1" + campo1 );
+          System.out.println("envio2" + campo2 );
+          System.out.println("envio3" + campo3 );
+          System.out.println("envio4" + campo4 );
+          System.out.println("envio5" + campo5 );
+           //System.out.println("envio" + campo2 );
+          ///System.out.println("envio2" + envio2 );
+
+        
+        
+          
+          
+        
+        try(PrintWriter out = response.getWriter())
+        {
+            out.println("{orden:" + numorden + "}");
+            out.println("{cajero:" + cajero + "}");
+            out.println("{cliente:" + cliente + "}");
+            out.println("{nit:" + valornit + "}");
+            out.println("{combo:" + combo + "}");
+            out.println("{envio1:" + campo1 + "}");
+            out.println("{envio2" + campo2 + "}");
+            out.println("{envio3:" + campo3 + "}");
+            out.println("{envio4" + campo4 + "}");
+            out.println("{envio5:" + campo5 + "}");
+           
+           // out.println("{envio2:" + envio2 + "}");
+        }
+       ////////////--fin captura
+         
+    }
+    
     /**
      * Returns a short description of the servlet.
      *
