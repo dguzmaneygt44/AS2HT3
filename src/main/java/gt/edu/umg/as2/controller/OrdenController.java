@@ -104,7 +104,7 @@ public class OrdenController extends HttpServlet {
         String campo4 = request.getParameter("campo4");
         String campo5 = request.getParameter("campo5");
         
-        
+        /*
         CursoDAOImpl cursoDAO = new CursoDAOImpl();
         boolean status = cursoDAO.insertarCurso(curso);
 
@@ -113,7 +113,7 @@ public class OrdenController extends HttpServlet {
         model.addAttribute("mensaje", mensaje);
 
         return "redirect:/getCurso";;
-           
+          */ 
           
           System.out.println("numeroOrden " + numorden );
           System.out.println("cajero" + cajero );
